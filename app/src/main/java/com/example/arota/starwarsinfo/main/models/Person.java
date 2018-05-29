@@ -1,5 +1,5 @@
 
-package com.example.arota.starwarsinfo.main.Models;
+package com.example.arota.starwarsinfo.main.models;
 
 import java.util.HashMap;
 import java.util.List;

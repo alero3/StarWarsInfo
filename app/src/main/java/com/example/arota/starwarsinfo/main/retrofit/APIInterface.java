@@ -1,9 +1,7 @@
-package com.example.arota.starwarsinfo.main;
+package com.example.arota.starwarsinfo.main.retrofit;
 
-import com.example.arota.starwarsinfo.main.Models.PeopleWrapper;
-import com.example.arota.starwarsinfo.main.Models.Person;
-
-import java.util.List;
+import com.example.arota.starwarsinfo.main.models.PeopleWrapper;
+import com.example.arota.starwarsinfo.main.models.Person;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

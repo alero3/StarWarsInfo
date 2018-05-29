@@ -1,4 +1,4 @@
-package com.example.arota.starwarsinfo.main;
+package com.example.arota.starwarsinfo.main.retrofit;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
