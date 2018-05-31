@@ -1,17 +1,22 @@
 
 package com.example.arota.starwarsinfo.main.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({
     "name",
     "height",
@@ -30,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "edited",
     "url"
 })
-public class Person {
+public class Person implements Parcelable {
 
     @JsonProperty("name")
     private String name;
@@ -237,4 +242,62 @@ public class Person {
         this.additionalProperties.put(name, value);
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.name);
+        dest.writeString(this.height);
+        dest.writeString(this.mass);
+        dest.writeString(this.hairColor);
+        dest.writeString(this.skinColor);
+        dest.writeString(this.eyeColor);
+        dest.writeString(this.birthYear);
+        dest.writeString(this.gender);
+        dest.writeString(this.homeworld);
+        dest.writeStringList(this.films);
+        dest.writeStringList(this.species);
+        dest.writeStringList(this.vehicles);
+        dest.writeStringList(this.starships);
+        dest.writeString(this.created);
+        dest.writeString(this.edited);
+        dest.writeString(this.url);
+    }
+
+    public Person() {
+    }
+
+    protected Person(Parcel in) {
+        this.name = in.readString();
+        this.height = in.readString();
+        this.mass = in.readString();
+        this.hairColor = in.readString();
+        this.skinColor = in.readString();
+        this.eyeColor = in.readString();
+        this.birthYear = in.readString();
+        this.gender = in.readString();
+        this.homeworld = in.readString();
+        this.films = in.createStringArrayList();
+        this.species = in.createStringArrayList();
+        this.vehicles = in.createStringArrayList();
+        this.starships = in.createStringArrayList();
+        this.created = in.readString();
+        this.edited = in.readString();
+        this.url = in.readString();
+    }
+
+    public static final Parcelable.Creator<Person> CREATOR = new Parcelable.Creator<Person>() {
+        @Override
+        public Person createFromParcel(Parcel source) {
+            return new Person(source);
+        }
+
+        @Override
+        public Person[] newArray(int size) {
+            return new Person[size];
+        }
+    };
 }

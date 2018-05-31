@@ -1,10 +1,10 @@
-package com.example.arota.starwarsinfo.main.list;
+package com.example.arota.starwarsinfo.main.list_people;
 
 import android.util.Log;
-import android.widget.Button;
 
 import com.example.arota.starwarsinfo.main.models.PeopleWrapper;
 import com.example.arota.starwarsinfo.main.models.Person;
+import com.example.arota.starwarsinfo.main.retrofit.APIClient;
 import com.example.arota.starwarsinfo.main.retrofit.APIInterface;
 
 import java.util.ArrayList;
@@ -16,18 +16,26 @@ import retrofit2.Response;
 
 public class StarWarsListPresenter implements StarWarsListContract.Presenter {
 
-    private static final String TAG = "MainFragment";
+    private static final String TAG = "StarWarsListPresenter";
     private List<Person> people;
+    Integer i = 1;
+    APIInterface apiInterface;
+    StarWarsListContract.View mPeopleView;
+
 
     @Override
     public void start() {
 
     }
 
-    StarWarsListContract.View mProvaView;
 
     public StarWarsListPresenter(StarWarsListContract.View mProvaView) {
-        this.mProvaView = mProvaView;
+        this.mPeopleView = mProvaView;
+
+        apiInterface = APIClient.getClient().create(APIInterface.class);
+        people = new ArrayList<>();
+
+
 
         mProvaView.setPresenter(this);
 
@@ -36,9 +44,11 @@ public class StarWarsListPresenter implements StarWarsListContract.Presenter {
 
 
     @Override
-    public void sendHTTPRequest(APIInterface apiInterface) {
+    public void downloadPeople() {
 
-        Call<PeopleWrapper> call = apiInterface.doGetPeople();
+
+        Call<PeopleWrapper> call = apiInterface.doGetPeopleAtPage(i.toString());
+
 
         call.enqueue(new Callback<PeopleWrapper>() {
             @Override
@@ -46,12 +56,22 @@ public class StarWarsListPresenter implements StarWarsListContract.Presenter {
 
                 Log.d(TAG,"Response code: " + response.code() + "");
 
-                people = new ArrayList<>();
 
                 for (Person p : response.body().getPeople())
                     people.add(p);
 
-                mProvaView.updateList(people);
+                if (response.body().getNext() != null)
+                {
+                    i++;
+                    downloadPeople();
+                }
+
+                else
+                {
+                    mPeopleView.updateList(people);
+                }
+
+
 
                 return;
 

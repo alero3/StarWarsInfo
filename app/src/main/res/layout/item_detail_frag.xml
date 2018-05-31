@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@android:color/holo_blue_dark"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/name_detail_tv"
+        android:layout_width="match_parent"
+        android:layout_height="105dp"
+        tools:text="Luke Skywalker"
+        android:textSize="40dp"
+        android:textColor="@android:color/white"
+        android:paddingLeft="26dp"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        android:layout_marginBottom="40dp"
+        />
+
+    <TextView
+        android:id="@+id/param_one_name_tv"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/name_detail_tv"
+        android:paddingLeft="26dp"
+        android:textSize="25dp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        tools:text="height"
+        />
+
+    <TextView
+        android:id="@+id/param_one_value_tv"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        tools:text="172"
+        android:layout_toRightOf="@+id/param_one_name_tv"
+        android:layout_below="@+id/name_detail_tv"
+        android:textSize="25dp"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:id="@+id/param_two_name_tv"
+        android:layout_marginTop="20dp"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/param_one_name_tv"
+        android:paddingLeft="26dp"
+        android:textSize="25dp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        tools:text="height"
+        />
+
+    <TextView
+        android:id="@+id/param_two_value_tv"
+        android:layout_marginTop="20dp"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        tools:text="172"
+        android:layout_toRightOf="@+id/param_two_name_tv"
+        android:layout_below="@+id/param_one_value_tv"
+        android:textSize="25dp"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:id="@+id/param_three_name_tv"
+        android:layout_marginTop="20dp"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/param_two_name_tv"
+        android:paddingLeft="26dp"
+        android:textSize="25dp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        tools:text="height"
+        />
+
+    <TextView
+        android:id="@+id/param_three_value_tv"
+        android:layout_marginTop="20dp"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        tools:text="172"
+        android:layout_toRightOf="@+id/param_three_name_tv"
+        android:layout_below="@+id/param_two_value_tv"
+        android:textSize="25dp"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:id="@+id/param_four_name_tv"
+        android:layout_marginTop="20dp"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/param_three_name_tv"
+        android:paddingLeft="26dp"
+        android:textSize="25dp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        tools:text="height"
+        />
+
+    <TextView
+        android:id="@+id/param_four_value_tv"
+        android:layout_marginTop="20dp"
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        tools:text="172"
+        android:layout_toRightOf="@+id/param_four_name_tv"
+        android:layout_below="@+id/param_three_value_tv"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        android:layout_marginLeft="20dp"
+        />
+
+
+
+</RelativeLayout>

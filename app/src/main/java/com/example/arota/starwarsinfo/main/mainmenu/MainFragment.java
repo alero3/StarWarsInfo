@@ -102,7 +102,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         starshipsButton.setOnClickListener(this);
 
 
-        //sendHTTPRequest();
+        //downloadPeople();
 
         return view;
     }
